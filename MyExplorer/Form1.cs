@@ -13,7 +13,7 @@ namespace MyExplorer
 {
     public partial class Form1 : Form
     {
-        string currentDir = "C:\\";
+        string currentDir = @"C:\Users\gcep650\";
         public Form1()
         {
             InitializeComponent();
@@ -59,6 +59,16 @@ namespace MyExplorer
                 currentDir = newDir;
                 loadDir(currentDir);
             }
+            else if(current.SubItems[1].Text.Equals("Image"))
+            {
+                panel1.Controls.Clear();
+                string newDir = Path.Combine(currentDir, parentFolder.Text, current.Text);
+                PhotoViewer viewer = new PhotoViewer(newDir);
+                viewer.TopLevel = false;
+                viewer.Parent = panel1;
+                viewer.Size = panel1.Size;
+                viewer.Show();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -96,7 +106,9 @@ namespace MyExplorer
             
             foreach (string item in Directory.GetDirectories(dir))
             {
+                Console.WriteLine(item);
                 TreeNode node = t.Nodes.Add(item);
+                //node.Name = "h";
                 node.ImageIndex = 3;
                 loadDirR(item, node);
             }

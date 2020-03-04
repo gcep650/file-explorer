@@ -35,11 +35,12 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.listView1 = new System.Windows.Forms.ListView();
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dateModified = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.readOnly = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.panel1 = new System.Windows.Forms.Panel();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -565,6 +566,11 @@
             this.name.Text = "Name";
             this.name.Width = 280;
             // 
+            // type
+            // 
+            this.type.Text = "Type";
+            this.type.Width = 108;
+            // 
             // dateModified
             // 
             this.dateModified.Text = "Date modified";
@@ -595,20 +601,24 @@
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // type
+            // panel1
             // 
-            this.type.Text = "Type";
-            this.type.Width = 108;
+            this.panel1.Location = new System.Drawing.Point(12, 465);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(872, 189);
+            this.panel1.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 471);
+            this.ClientSize = new System.Drawing.Size(896, 666);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.treeView1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -630,6 +640,7 @@
         private System.Windows.Forms.ColumnHeader dateModified;
         private System.Windows.Forms.ColumnHeader readOnly;
         private System.Windows.Forms.ColumnHeader type;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
