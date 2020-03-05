@@ -63,7 +63,20 @@ namespace MyExplorer
             {
                 panel1.Controls.Clear();
                 string newDir = Path.Combine(currentDir, parentFolder.Text, current.Text);
-                PhotoViewer viewer = new PhotoViewer(newDir);
+                //PhotoViewer viewer = new PhotoViewer(newDir);
+                PictureBox temp = new PictureBox();
+                temp.Load(newDir);
+                FileExInfo viewer = new FileExInfo(current.SubItems[0].Text, temp.Image, imageList1.Images[current.ImageIndex], current.SubItems[1].Text, DateTime.Parse(current.SubItems[2].Text), bool.Parse(current.SubItems[3].Text));
+                viewer.TopLevel = false;
+                viewer.Parent = panel1;
+                viewer.Size = panel1.Size;
+                viewer.Show();
+            }
+            else if (current.SubItems[1].Text.Equals("Text document"))
+            {
+                panel1.Controls.Clear();
+                string newDir = Path.Combine(currentDir, parentFolder.Text, current.Text);
+                FileExInfo viewer = new FileExInfo(current.SubItems[0].Text, temp.Image, imageList1.Images[current.ImageIndex], current.SubItems[1].Text, DateTime.Parse(current.SubItems[2].Text), bool.Parse(current.SubItems[3].Text));
                 viewer.TopLevel = false;
                 viewer.Parent = panel1;
                 viewer.Size = panel1.Size;
