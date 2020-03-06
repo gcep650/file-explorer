@@ -590,6 +590,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(896, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Visible = false;
             // 
             // toolStripButton1
             // 

@@ -42,7 +42,47 @@ namespace MyExplorer
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listView1.SelectedItems.Count > 0)
+            {
 
+                ListViewItem current = listView1.Items[listView1.SelectedItems[0].Index];
+                TreeNode parentFolder = treeView1.SelectedNode;
+
+                if (current.SubItems[1].Text.Equals("Image"))
+                {
+                    panel1.Controls.Clear();
+                    string newDir = Path.Combine(currentDir, parentFolder.Text, current.Text);
+                    //PhotoViewer viewer = new PhotoViewer(newDir);
+                    PictureBox temp = new PictureBox();
+                    temp.Load(newDir);
+                    FileExInfo viewer = new FileExInfo(current.SubItems[0].Text, temp.Image, imageList1.Images[current.ImageIndex], current.SubItems[1].Text, DateTime.Parse(current.SubItems[2].Text), bool.Parse(current.SubItems[3].Text));
+                    viewer.TopLevel = false;
+                    viewer.Parent = panel1;
+                    viewer.Size = panel1.Size;
+                    viewer.Show();
+                }
+                else if (current.SubItems[1].Text.Equals("Text document"))
+                {
+                    panel1.Controls.Clear();
+                    string newDir = Path.Combine(currentDir, parentFolder.Text, current.Text);
+                    FileInfo f = new FileInfo(newDir);
+
+                    FileExInfo viewer = new FileExInfo(current.SubItems[0].Text, f.OpenText().ReadToEnd(), imageList1.Images[current.ImageIndex], current.SubItems[1].Text, DateTime.Parse(current.SubItems[2].Text), bool.Parse(current.SubItems[3].Text));
+                    viewer.TopLevel = false;
+                    viewer.Parent = panel1;
+                    viewer.Size = panel1.Size;
+                    viewer.Show();
+                }
+                else
+                {
+                    panel1.Controls.Clear();
+                    FileExInfo viewer = new FileExInfo(current.SubItems[0].Text, imageList1.Images[current.ImageIndex], current.SubItems[1].Text, DateTime.Parse(current.SubItems[2].Text), bool.Parse(current.SubItems[3].Text));
+                    viewer.TopLevel = false;
+                    viewer.Parent = panel1;
+                    viewer.Size = panel1.Size;
+                    viewer.Show();
+                }
+            }
         }
 
         private void doubled(object sender, EventArgs e)
@@ -53,36 +93,18 @@ namespace MyExplorer
             {
                 string newDir = "";
                 //MessageBox.Show(currentDir);
-                newDir = Path.Combine(currentDir, parentFolder.Text, current.Text + "\\");
+                newDir = Path.Combine(currentDir, parentFolder.Text, current.Text);
                 //newDir = System.IO.Path.Combine(currentDir, current.Text);
-                MessageBox.Show(newDir);
-                currentDir = newDir;
-                loadDir(currentDir);
-            }
-            else if(current.SubItems[1].Text.Equals("Image"))
-            {
-                panel1.Controls.Clear();
-                string newDir = Path.Combine(currentDir, parentFolder.Text, current.Text);
-                //PhotoViewer viewer = new PhotoViewer(newDir);
-                PictureBox temp = new PictureBox();
-                temp.Load(newDir);
-                FileExInfo viewer = new FileExInfo(current.SubItems[0].Text, temp.Image, imageList1.Images[current.ImageIndex], current.SubItems[1].Text, DateTime.Parse(current.SubItems[2].Text), bool.Parse(current.SubItems[3].Text));
-                viewer.TopLevel = false;
-                viewer.Parent = panel1;
-                viewer.Size = panel1.Size;
-                viewer.Show();
-            }
-            else if (current.SubItems[1].Text.Equals("Text document"))
-            {
-                panel1.Controls.Clear();
-                string newDir = Path.Combine(currentDir, parentFolder.Text, current.Text);
-                FileInfo f = new FileInfo(newDir);
-                
-                FileExInfo viewer = new FileExInfo(current.SubItems[0].Text, f.OpenText().ReadToEnd(), imageList1.Images[current.ImageIndex], current.SubItems[1].Text, DateTime.Parse(current.SubItems[2].Text), bool.Parse(current.SubItems[3].Text));
-                viewer.TopLevel = false;
-                viewer.Parent = panel1;
-                viewer.Size = panel1.Size;
-                viewer.Show();
+                //MessageBox.Show(newDir);
+                //currentDir = newDir;
+                //loadDir(currentDir);
+                foreach (TreeNode node in parentFolder.Nodes)
+                {
+                    if (node.Text.Equals(newDir))
+                    {
+                        treeView1.SelectedNode = node;
+                    }
+                }
             }
         }
 
@@ -136,11 +158,15 @@ namespace MyExplorer
             string[] split;
             try
             {
+                panel1.Controls.Clear();
                 foreach (string dir in Directory.GetDirectories(e.Node.Text))
                 {
                     split = dir.Split('\\');
                     ListViewItem item = listView1.Items.Add(split[split.Length - 1]);
+                    DirectoryInfo cDir = new DirectoryInfo(dir);
                     item.SubItems.Add(getFileType("dir"));
+                    item.SubItems.Add(cDir.LastWriteTime.ToShortDateString());
+                    item.SubItems.Add(cDir.Attributes.HasFlag(FileAttributes.ReadOnly).ToString());
                     item.ImageIndex = 3;
                 }
 

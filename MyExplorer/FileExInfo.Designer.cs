@@ -30,17 +30,17 @@
         {
             this.iconBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.typeL = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dateL = new System.Windows.Forms.Label();
             this.readL = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.fileText = new System.Windows.Forms.TextBox();
+            this.dateL = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.typeL = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.nameL = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureContents = new System.Windows.Forms.PictureBox();
+            this.fileText = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.iconBox)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,45 +82,15 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 161);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // label1
+            // readL
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "File type:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // typeL
-            // 
-            this.typeL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.typeL.Location = new System.Drawing.Point(137, 40);
-            this.typeL.Name = "typeL";
-            this.typeL.Size = new System.Drawing.Size(224, 40);
-            this.typeL.TabIndex = 1;
-            this.typeL.Text = "File";
-            this.typeL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(3, 80);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 40);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Date modified:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(3, 120);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 41);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Read only?";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.readL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.readL.Location = new System.Drawing.Point(137, 120);
+            this.readL.Name = "readL";
+            this.readL.Size = new System.Drawing.Size(224, 41);
+            this.readL.TabIndex = 6;
+            this.readL.Text = "No";
+            this.readL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // dateL
             // 
@@ -132,38 +102,45 @@
             this.dateL.Text = "1/1/20";
             this.dateL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // readL
+            // label5
             // 
-            this.readL.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.readL.Location = new System.Drawing.Point(137, 120);
-            this.readL.Name = "readL";
-            this.readL.Size = new System.Drawing.Size(224, 41);
-            this.readL.TabIndex = 6;
-            this.readL.Text = "No";
-            this.readL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(3, 120);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 41);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Read only?";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // groupBox1
+            // label3
             // 
-            this.groupBox1.Controls.Add(this.pictureContents);
-            this.groupBox1.Controls.Add(this.fileText);
-            this.groupBox1.Location = new System.Drawing.Point(493, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 164);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Contents";
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(3, 80);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 40);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Date modified:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // fileText
+            // typeL
             // 
-            this.fileText.BackColor = System.Drawing.Color.White;
-            this.fileText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.fileText.Location = new System.Drawing.Point(3, 21);
-            this.fileText.Multiline = true;
-            this.fileText.Name = "fileText";
-            this.fileText.ReadOnly = true;
-            this.fileText.Size = new System.Drawing.Size(361, 140);
-            this.fileText.TabIndex = 0;
-            this.fileText.WordWrap = false;
+            this.typeL.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.typeL.Location = new System.Drawing.Point(137, 40);
+            this.typeL.Name = "typeL";
+            this.typeL.Size = new System.Drawing.Size(224, 40);
+            this.typeL.TabIndex = 1;
+            this.typeL.Text = "File";
+            this.typeL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 40);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "File type:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
@@ -186,6 +163,17 @@
             this.nameL.Text = "file";
             this.nameL.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pictureContents);
+            this.groupBox1.Controls.Add(this.fileText);
+            this.groupBox1.Location = new System.Drawing.Point(493, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(367, 164);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Contents";
+            // 
             // pictureContents
             // 
             this.pictureContents.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -195,6 +183,19 @@
             this.pictureContents.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureContents.TabIndex = 2;
             this.pictureContents.TabStop = false;
+            // 
+            // fileText
+            // 
+            this.fileText.BackColor = System.Drawing.Color.White;
+            this.fileText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileText.Location = new System.Drawing.Point(3, 21);
+            this.fileText.Multiline = true;
+            this.fileText.Name = "fileText";
+            this.fileText.ReadOnly = true;
+            this.fileText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.fileText.Size = new System.Drawing.Size(361, 140);
+            this.fileText.TabIndex = 0;
+            this.fileText.WordWrap = false;
             // 
             // FileExInfo
             // 
