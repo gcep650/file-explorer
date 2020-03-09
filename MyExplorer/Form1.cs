@@ -111,6 +111,7 @@ namespace MyExplorer
         private void Form1_Load(object sender, EventArgs e)
         {
             treeView1.SelectedImageIndex = 4;
+            this.Show();
             loadDir(currentDir);
         }
 
@@ -120,11 +121,11 @@ namespace MyExplorer
             TreeNode start = treeView1.Nodes.Add(dir);
             start.ImageIndex = 3;
             loadDirR(dir, start);
-            /*foreach (string item in Directory.GetDirectories(dir))
+            /*
+            foreach (string item in Directory.GetDirectories(dir))
             {
                 TreeNode t = treeView1.Nodes.Add(item);
                 t.ImageIndex = 3;
-
             }
             */
 
@@ -140,7 +141,7 @@ namespace MyExplorer
             {
                 return;
             }
-            
+
             foreach (string item in Directory.GetDirectories(dir))
             {
                 Console.WriteLine(item);
@@ -158,6 +159,14 @@ namespace MyExplorer
             string[] split;
             try
             {
+                if (e.Node.Nodes.Count < 1)
+                {
+                    foreach (string item2 in Directory.GetDirectories(e.Node.Text))
+                    {
+                        TreeNode t2 = e.Node.Nodes.Add(item2);
+                        t2.ImageIndex = 3;
+                    }
+                }
                 panel1.Controls.Clear();
                 foreach (string dir in Directory.GetDirectories(e.Node.Text))
                 {
@@ -252,6 +261,30 @@ namespace MyExplorer
                 default:
                     return ext + " File";
             }
+        }
+
+        private void treeView1_AfterExpand(object sender, TreeViewEventArgs e)
+        {
+            /*
+            if (e.Node.Nodes.Count < 1)
+            {
+
+                try
+                {
+                    string[] newdir = Directory.GetDirectories(e.Node.Text);
+                    foreach (string item2 in newdir)
+                    {
+                        TreeNode t2 = e.Node.Nodes.Add(item2);
+                        t2.ImageIndex = 3;
+                    }
+
+                }
+                catch (Exception m)
+                {
+                    MessageBox.Show(m.Message);
+                }
+            }
+            */
         }
     }
 }

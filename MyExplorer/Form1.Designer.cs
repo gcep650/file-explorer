@@ -41,6 +41,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.loadingLabel = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             this.treeView1.SelectedImageIndex = 4;
             this.treeView1.Size = new System.Drawing.Size(233, 426);
             this.treeView1.TabIndex = 0;
+            this.treeView1.AfterExpand += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterExpand);
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // imageList2
@@ -609,18 +611,28 @@
             this.panel1.Size = new System.Drawing.Size(872, 189);
             this.panel1.TabIndex = 3;
             // 
+            // loadingLabel
+            // 
+            this.loadingLabel.AutoSize = true;
+            this.loadingLabel.Location = new System.Drawing.Point(12, 17);
+            this.loadingLabel.Name = "loadingLabel";
+            this.loadingLabel.Size = new System.Drawing.Size(191, 13);
+            this.loadingLabel.TabIndex = 4;
+            this.loadingLabel.Text = "Loading files. This may take some time.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 666);
+            this.Controls.Add(this.loadingLabel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.treeView1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "File Explorer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -642,6 +654,7 @@
         private System.Windows.Forms.ColumnHeader readOnly;
         private System.Windows.Forms.ColumnHeader type;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label loadingLabel;
     }
 }
 
